@@ -1,0 +1,21 @@
+{
+  "name": "nowa-install",
+  "version": "1.0.0",
+  "description": "nowa plugin installer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nowa-webpack/nowa-install.git"
+  },
+  "keywords": [
+    "nowa",
+    "webpack",
+    "install"
+  ],
+  "author": "gbk <ck0123456@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/nowa-webpack/nowa-install#readme"
+}
