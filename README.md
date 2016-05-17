@@ -20,5 +20,5 @@ $ npm i nowa-install -g
 ## Usage
 
 ```bash
-$ nowa help install
+$ nowa install --help
 ```
