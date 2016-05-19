@@ -9,13 +9,7 @@ nowa plugin installer
 ## Feature
 
 - nowa plugin installer
-
-## Install
-
-```bash
-$ npm i nowa
-$ npm i nowa-install -g
-```
+- it's a inner plugin of nowa
 
 ## Usage
 

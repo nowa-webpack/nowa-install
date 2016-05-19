@@ -2,7 +2,7 @@
 * @Author: gbk <ck0123456@gmail.com>
 * @Date:   2016-04-21 17:34:00
 * @Last Modified by:   gbk
-* @Last Modified time: 2016-05-18 11:19:04
+* @Last Modified time: 2016-05-18 21:16:49
 */
 
 'use strict';
@@ -27,18 +27,26 @@ module.exports = {
 
   description: pkg.description,
 
-  action: function(plugins) {
+  options: [
+    [ '-r, --registry [registry]', 'change npm registry' ]
+  ],
+
+  action: function(plugins, options) {
     if (!plugins.length) {
       plugins = defaultPlugins;
     }
 
     // run npm instal
-    spawn('npm', [
+    var opts = [
       'install',
       '-g',
       '-d'
-    ].concat(plugins.map(function(plugin) {
-      return 'nowa-' + plugin;
+    ];
+    if (options && options.registry) {
+      opts.push('--registry=' + options.registry);
+    }
+    spawn('npm', opts.concat(plugins.map(function(plugin) {
+      return !/^nowa\-/.test(plugin) ? 'nowa-' + plugin : plugin;
     })), {
       stdio: 'inherit',
       stderr: 'inherit'
