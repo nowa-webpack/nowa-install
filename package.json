@@ -1,6 +1,6 @@
 {
   "name": "nowa-install",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "nowa plugin installer",
   "main": "index.js",
   "scripts": {
