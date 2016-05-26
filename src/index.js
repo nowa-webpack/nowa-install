@@ -2,7 +2,7 @@
 * @Author: gbk <ck0123456@gmail.com>
 * @Date:   2016-04-21 17:34:00
 * @Last Modified by:   gbk
-* @Last Modified time: 2016-05-18 21:16:49
+* @Last Modified time: 2016-05-23 19:38:49
 */
 
 'use strict';
@@ -28,7 +28,7 @@ module.exports = {
   description: pkg.description,
 
   options: [
-    [ '-r, --registry [registry]', 'change npm registry' ]
+    [ '-r, --registry <registry>', 'change npm registry' ]
   ],
 
   action: function(plugins, options) {
