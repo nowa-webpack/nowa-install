@@ -2,7 +2,7 @@
 * @Author: gbk <ck0123456@gmail.com>
 * @Date:   2016-04-21 17:34:00
 * @Last Modified by:   gbk
-* @Last Modified time: 2016-06-06 17:36:41
+* @Last Modified time: 2016-06-06 17:53:11
 */
 
 'use strict';
@@ -56,6 +56,11 @@ module.exports = {
     // change registry
     if (options.registry) {
       config.registry = options.registry;
+
+      // force build fsevent locally
+      if (process.platform === 'darwin') {
+        process.env.npm_config_fse_binary_host_mirror = 'http://127.0.0.1';
+      }
     }
 
     // set install dir
@@ -66,11 +71,6 @@ module.exports = {
     } else {
       config.targetDir = path.join(npmPrefix, 'lib');
       config.binDir = path.join(npmPrefix, 'bin');
-    }
-
-    // force build fsevent locally
-    if (process.platform === 'darwin') {
-      process.env.fse_binary_host_mirror = 'http://127.0.0.1';
     }
 
     // run npm install
