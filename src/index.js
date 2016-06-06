@@ -2,7 +2,7 @@
 * @Author: gbk <ck0123456@gmail.com>
 * @Date:   2016-04-21 17:34:00
 * @Last Modified by:   gbk
-* @Last Modified time: 2016-06-06 12:41:38
+* @Last Modified time: 2016-06-06 12:57:45
 */
 
 'use strict';
@@ -39,6 +39,7 @@ module.exports = {
     }
 
     var config = {
+      root: process.cwd(),
       registry: options.registry || 'https://registry.npm.taobao.org',
       pkgs: plugins.map(function(plugin) {
         return {
