@@ -2,7 +2,7 @@
 * @Author: gbk <ck0123456@gmail.com>
 * @Date:   2016-04-21 17:34:00
 * @Last Modified by:   gbk
-* @Last Modified time: 2016-06-06 14:39:10
+* @Last Modified time: 2016-06-06 17:36:41
 */
 
 'use strict';
@@ -66,6 +66,11 @@ module.exports = {
     } else {
       config.targetDir = path.join(npmPrefix, 'lib');
       config.binDir = path.join(npmPrefix, 'bin');
+    }
+
+    // force build fsevent locally
+    if (process.platform === 'darwin') {
+      process.env.fse_binary_host_mirror = 'http://127.0.0.1';
     }
 
     // run npm install
