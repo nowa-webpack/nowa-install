@@ -2,12 +2,12 @@
 * @Author: gbk <ck0123456@gmail.com>
 * @Date:   2016-04-21 17:34:00
 * @Last Modified by:   gbk
-* @Last Modified time: 2016-06-06 11:50:49
+* @Last Modified time: 2016-06-06 12:41:38
 */
 
 'use strict';
 
-var path = require(path);
+var path = require('path');
 var execSync = require('child_process').execSync;
 
 var npminstall = require('npminstall');
