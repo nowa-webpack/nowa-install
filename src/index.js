@@ -2,7 +2,7 @@
 * @Author: gbk <ck0123456@gmail.com>
 * @Date:   2016-04-21 17:34:00
 * @Last Modified by:   gbk
-* @Last Modified time: 2016-06-06 13:08:34
+* @Last Modified time: 2016-06-06 13:29:58
 */
 
 'use strict';
@@ -51,7 +51,7 @@ module.exports = {
 
     // change registry
     if (options.registry) {
-      config.registry = 'https://registry.npm.taobao.org';
+      config.registry = options.registry;
     }
 
     // set install dir
