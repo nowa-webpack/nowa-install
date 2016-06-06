@@ -2,7 +2,7 @@
 * @Author: gbk <ck0123456@gmail.com>
 * @Date:   2016-04-21 17:34:00
 * @Last Modified by:   gbk
-* @Last Modified time: 2016-06-06 14:35:11
+* @Last Modified time: 2016-06-06 14:39:10
 */
 
 'use strict';
@@ -50,7 +50,7 @@ module.exports = {
       })
     };
     console.log('Installing ' + config.pkgs.map(function(pkg) {
-      return pkg;
+      return pkg.name;
     }).join(' ') + ' ...');
 
     // change registry
