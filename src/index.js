@@ -2,7 +2,7 @@
 * @Author: gbk <ck0123456@gmail.com>
 * @Date:   2016-04-21 17:34:00
 * @Last Modified by:   gbk
-* @Last Modified time: 2016-06-06 13:29:58
+* @Last Modified time: 2016-06-06 14:05:07
 */
 
 'use strict';
@@ -10,6 +10,7 @@
 var path = require('path');
 var execSync = require('child_process').execSync;
 
+var co = require('co');
 var npminstall = require('npminstall');
 
 var pkg = require('../package.json');
@@ -65,6 +66,10 @@ module.exports = {
     }
 
     // run npm install
-    npminstall(config);
+    co(function*() {
+      yield npminstall(config);
+    }).catch(function(err) {
+      console.log(err.stack)
+    });
   }
 };
