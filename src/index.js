@@ -2,13 +2,12 @@
 * @Author: gbk <ck0123456@gmail.com>
 * @Date:   2016-04-21 17:34:00
 * @Last Modified by:   gbk
-* @Last Modified time: 2016-06-06 17:53:11
+* @Last Modified time: 2016-06-23 21:08:37
 */
 
 'use strict';
 
 var path = require('path');
-var execSync = require('child_process').execSync;
 
 var co = require('co');
 var npminstall = require('npminstall');
@@ -63,15 +62,10 @@ module.exports = {
       }
     }
 
-    // set install dir
-    var npmPrefix = execSync('npm config get prefix').toString().trim();
-    if (process.platform === 'win32') {
-      config.targetDir = npmPrefix;
-      config.binDir = npmPrefix;
-    } else {
-      config.targetDir = path.join(npmPrefix, 'lib');
-      config.binDir = path.join(npmPrefix, 'bin');
-    }
+    // set peer install dir
+    var npmPrefix = path.join(this.parent._moduleDirs[1], '..');
+    config.targetDir = npmPrefix;
+    config.binDir = process.platform === 'win32' ? npmPrefix : path.join(npmPrefix, '..', 'bin');
 
     // run npm install
     co(function*() {
