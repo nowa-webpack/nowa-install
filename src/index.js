@@ -2,11 +2,12 @@
 * @Author: gbk <ck0123456@gmail.com>
 * @Date:   2016-04-21 17:34:00
 * @Last Modified by:   gbk
-* @Last Modified time: 2016-06-23 21:08:37
+* @Last Modified time: 2016-06-26 10:50:39
 */
 
 'use strict';
 
+var os = require('os');
 var path = require('path');
 
 var co = require('co');
@@ -44,13 +45,19 @@ module.exports = {
       pkgs: plugins.map(function(plugin) {
         return {
           name: !/^nowa\-/.test(plugin) ? 'nowa-' + plugin : plugin,
-          version: 'latest'
+          version: this.parent._version.split('.')[0]
         };
       })
     };
     console.log('Installing ' + config.pkgs.map(function(pkg) {
       return pkg.name;
     }).join(' ') + ' ...');
+
+    // install rimraf for uninstall
+    config.pkgs.push({
+      name: 'rimraf',
+      version: 'latest'
+    });
 
     // change registry
     if (options.registry) {
@@ -65,7 +72,8 @@ module.exports = {
     // set peer install dir
     var npmPrefix = path.join(this.parent._moduleDirs[1], '..');
     config.targetDir = npmPrefix;
-    config.binDir = process.platform === 'win32' ? npmPrefix : path.join(npmPrefix, '..', 'bin');
+    config.binDir = path.join(os.homedir(), '.nowa', 'install', '.bin');
+    config.storeDir = path.join(os.homedir(), '.nowa', 'install');
 
     // run npm install
     co(function*() {
