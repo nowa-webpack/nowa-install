@@ -2,7 +2,7 @@
 * @Author: gbk <ck0123456@gmail.com>
 * @Date:   2016-04-21 17:34:00
 * @Last Modified by:   gbk
-* @Last Modified time: 2016-06-26 10:50:39
+* @Last Modified time: 2016-06-30 10:01:46
 */
 
 'use strict';
@@ -35,6 +35,8 @@ module.exports = {
   ],
 
   action: function(plugins, options) {
+    var nowaVersion = this.parent._version;
+
     if (!plugins.length) {
       plugins = defaultPlugins;
     }
@@ -45,7 +47,7 @@ module.exports = {
       pkgs: plugins.map(function(plugin) {
         return {
           name: !/^nowa\-/.test(plugin) ? 'nowa-' + plugin : plugin,
-          version: this.parent._version.split('.')[0]
+          version: nowaVersion.split('.')[0]
         };
       })
     };
