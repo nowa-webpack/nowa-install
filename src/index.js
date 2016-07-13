@@ -2,7 +2,7 @@
 * @Author: gbk <ck0123456@gmail.com>
 * @Date:   2016-04-21 17:34:00
 * @Last Modified by:   gbk
-* @Last Modified time: 2016-06-30 10:01:46
+* @Last Modified time: 2016-07-13 15:57:02
 */
 
 'use strict';
@@ -39,6 +39,13 @@ module.exports = {
 
     if (!plugins.length) {
       plugins = defaultPlugins;
+    }
+
+    // check user
+    if (process.getuid && process.getuid() === 0) {
+      console.log('Please DO NOT run nowa install as root!');
+      console.log('You can run "sudo chmod 777 `npm root -g`" to have write permission.')
+      process.exit();
     }
 
     // npminstall config
