@@ -20,6 +20,6 @@
   "homepage": "https://github.com/nowa-webpack/nowa-install#readme",
   "dependencies": {
     "co": "^4.6.0",
-    "npminstall": "^1.10.1"
+    "npminstall": "^2.26.4"
   }
 }
