@@ -2,7 +2,7 @@
 * @Author: gbk <ck0123456@gmail.com>
 * @Date:   2016-04-21 17:34:00
 * @Last Modified by:   gbk
-* @Last Modified time: 2016-07-13 15:57:02
+* @Last Modified time: 2017-04-26 10:28:09
 */
 
 'use strict';
@@ -31,7 +31,7 @@ module.exports = {
   description: pkg.description,
 
   options: [
-    [ '-r, --registry <registry>', 'change npm registry' ]
+    [ '-r, --registry <registry>', 'change npm registry', 'https://registry.npm.taobao.org' ]
   ],
 
   action: function(plugins, options) {
